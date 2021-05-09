@@ -1,4 +1,4 @@
-from flask_restful import Resource, reqparse
+from flask_restful import Resource, reqparse, marshal_with
 import requests
 
 WEATHER_ENDPOINT='http://api.openweathermap.org/data/2.5'
@@ -10,7 +10,7 @@ class CurrentWeather(Resource):
     POST can get information about the current weather by city name or coordinates.
     """
 
-
+    
     def post(self):
         """
         POST Method for the current weather.
@@ -24,8 +24,8 @@ class CurrentWeather(Resource):
         # Extract arguments from post request
         parser = reqparse.RequestParser()
         parser.add_argument('city', location='form')
-        parser.add_argument('lat', type=float, location='form')
-        parser.add_argument('lon', type=float, location='form')
+        # parser.add_argument('lat', type=float, location='form')
+        # parser.add_argument('lon', type=float, location='form')
         parser.add_argument(
             'unit',
             required=True,
