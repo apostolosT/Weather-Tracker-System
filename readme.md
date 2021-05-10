@@ -65,6 +65,6 @@ curl -i "localhost:5000/weather_agent/get_city_weather_data" -d "city"="London" 
 
 * Cities collection
 
-![cities_collection](/home/apostolos/Desktop/Projects/centaur/weather_tracker/images/cities_collection.png)
+![cities_collection](./images/cities_collection.png)
 
-![weather_collection](/home/apostolos/Desktop/Projects/centaur/weather_tracker/images/weather_collection.png)
+![weather_collection](./images/weather_collection.png)
