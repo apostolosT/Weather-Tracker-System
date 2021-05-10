@@ -65,18 +65,21 @@ class RemoveCityEndpoint(Resource):
 
 class GetCityWeatherData(Resource):
     
-    url = 'http://127.0.0.1:5200/current-weather'
+    url = 'http://127.0.0.1:5200/weather_service_api/current-weather'
     cities=cities_collection.find()
 
-    def get(self):
-        args=request.args.to_dict()  
-        x = requests.post(self.url, data = args)
+    # def get(self):
 
-        if args['city'] in [city['_id'] for city in self.cities]:
-            x = requests.post(self.url, data = args)
-            return x.json()
-        else:
-            return (f"Cannot fetch weather data for {args['city']} city. It is not listed in tracked cities \n")
+    #     args=request.args.to_dict()  
+
+    #     print(self.url,args)
+    #     x = requests.post(self.url, data = args)
+
+    #     if args['city'] in [city['_id'] for city in self.cities]:
+    #         x = requests.post(self.url, data = args)
+    #         return x.json()
+    #     else:
+    #         return (f"Cannot fetch weather data for {args['city']} city. It is not listed in tracked cities \n")
     
 
     def post(self):
