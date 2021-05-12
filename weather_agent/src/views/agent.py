@@ -1,3 +1,4 @@
+from typing import List
 from flask_restful import Resource, reqparse
 from flask import jsonify,request
 import requests
@@ -58,6 +59,8 @@ class RemoveCityEndpoint(Resource):
         args = parser.parse_args(strict=True)
     
         res=cities_collection.find_one_and_delete({"_id":args['city']})
+        #delete also historical data for tracked city?
+
         if(res):
             return (f"{args['city']} city deleted \n")
         else:
@@ -66,10 +69,13 @@ class RemoveCityEndpoint(Resource):
 class GetCityWeatherData(Resource):
     
     url = 'http://127.0.0.1:5200/weather_service_api/current-weather'
-    cities=cities_collection.find()
+    
 
     
     def post(self):
+        cities=cities_collection.find()
+        cities:List[str]=[city['_id'] for city in cities]
+
         parser = reqparse.RequestParser()
         parser.add_argument('city', location='form')
         parser.add_argument(
@@ -80,8 +86,9 @@ class GetCityWeatherData(Resource):
             help='Invalid Unit: {error_msg}',
         )
         args = parser.parse_args(strict=True)
+        print(args['city'],cities)
 
-        if args['city'] in [city['_id'] for city in self.cities]:
+        if args['city'] in cities :
             x = requests.post(self.url, data = args)
             weather_data_collection.insert_one(x.json())
             
