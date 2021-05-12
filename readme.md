@@ -20,7 +20,6 @@
 
 * Weather Service API:
   * API internalization
-  * Clear the old cache data.
   * Tests
   * Docker image
 * MongoDB as a Docker Container
