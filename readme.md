@@ -8,8 +8,9 @@
 - Weather Service API:
   - Current Data Collection from OpenWeatherMap
   - OpenAPI (Swagger) specification support
+  - Caching OpenWeatherMap API responses with Redis backend
 
-## ToDOs
+## .ToDOs
 
 * Weather Agent API:
   * Schedule daily background tasks for daily data collection
@@ -19,7 +20,6 @@
 
 * Weather Service API:
   * API internalization
-  * Cache weather data to mongoDB. 
   * Clear the old cache data.
   * Tests
   * Docker image
