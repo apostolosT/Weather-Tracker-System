@@ -5,15 +5,16 @@
 - Weather Agent API:
   - Weather Agent  CRUD endpoints with access to mongoDB
   - Weather Agent get city last weather data endpoint
+  - Schedule daily background tasks for daily data collection
 - Weather Service API:
   - Current Data Collection from OpenWeatherMap
   - OpenAPI (Swagger) specification support
   - Caching OpenWeatherMap API responses with Redis backend
+  - Docker Image
 
 ## .ToDOs
 
 * Weather Agent API:
-  * Schedule daily background tasks for daily data collection
   * Tests
   * API specification
   * Docker image
@@ -21,7 +22,6 @@
 * Weather Service API:
   * API internalization
   * Tests
-  * Docker image
 * MongoDB as a Docker Container
 
 ## Run System
