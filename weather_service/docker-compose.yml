@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "5200:5200"
+    environment:
+      - PYTHONUNBUFFERED=1
+  redis:
+    image: "redis:alpine"

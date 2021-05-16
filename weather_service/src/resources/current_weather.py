@@ -4,7 +4,8 @@ import redis
 import json
 
 
-redis_client=redis.Redis()
+# redis_client=redis.Redis()
+redis_client=redis.Redis(host='redis', port=6379)
 
 WEATHER_ENDPOINT='http://api.openweathermap.org/data/2.5'
 KEY='56db55e7cec8ea64e84ad8e39e744f66'
@@ -31,13 +32,13 @@ class CurrentWeather(Resource):
         parser.add_argument('city', location='form')
         # parser.add_argument('lat', type=float, location='form')
         # parser.add_argument('lon', type=float, location='form')
-        parser.add_argument(
-            'unit',
-            required=True,
-            choices=('metric', 'imperial'),
-            location='form',
-            help='Invalid Unit: {error_msg}',
-        )
+        # parser.add_argument(
+        #     'unit',
+        #     required=True,
+        #     choices=('metric', 'imperial'),
+        #     location='form',
+        #     help='Invalid Unit: {error_msg}',
+        # )
         args = parser.parse_args(strict=True)
         print(args['city'])
         # Check if get current weather by city name or coordinates
@@ -49,8 +50,8 @@ class CurrentWeather(Resource):
             + args['city']
             + '&appid='
             + KEY
-            + '&units='
-            + args['unit']
+            + '&units=metric'
+            
         )
         # check if requested data for city exist in cache
         in_cache=redis_client.get(args['city'])

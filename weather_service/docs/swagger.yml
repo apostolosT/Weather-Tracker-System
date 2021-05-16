@@ -5,8 +5,10 @@ info:
   
 
 servers:
-  - url: http://localhost:5200/weather_service_api
+  - url: http://localhost:5200/weather_service
     description: Development server (using locally)
+  - url: http://0.0.0.0:5200/weather_service
+    description: Production server (inside Docker)
 
 
 paths:
@@ -23,12 +25,12 @@ paths:
               properties:
                 city:         # <!--- form field name
                   type: string
-                unit:    # <!--- form field name
-                  type: string
-                  enum: ["metric", "imperial"]
+                # unit:    # <!--- form field name
+                #   type: string
+                #   enum: ["metric", "imperial"]
               required:
                 - city
-                - unit
+                
       tags:
         - Weather
       responses:
@@ -114,14 +116,14 @@ paths:
                       - timezone
                       - sunrise
                       - sunset
-                  widget:
-                    type: string
-                    description: html code for the current-weather widget.
+                  # widget:
+                  #   type: string
+                  #   description: html code for the current-weather widget.
                 required:
                   - city_name
                   - weather
                   - time
-                  - widget
+                  # - widget
                 example:
                   city_name: Volos
                   weather:

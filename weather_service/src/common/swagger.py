@@ -12,7 +12,7 @@ class Swagger:
         """
 
         self.SWAGGER_URL = (
-            '/weather_service_api'  # URL for exposing Swagger UI (without trailing '/')
+            '/weather_service'  # URL for exposing Swagger UI (without trailing '/')
         )
         self.API_URL = (
             './docs/swagger.yml'  # Our API url (can of course be a local resource)
