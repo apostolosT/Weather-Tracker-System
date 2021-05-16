@@ -12,11 +12,10 @@
   - Caching OpenWeatherMap API responses with Redis backend
   - Docker Image
 
-## .ToDOs
+## ToDOs
 
 * Weather Agent API:
   * Tests
-  * API specification
   * Docker image
 
 * Weather Service API:
@@ -34,12 +33,18 @@ To launch the Weather Service API go to the weather_service sub-directory and ru
 
 OR
 
+Being in the weather_service directory , build a docker image by executing the following commands: 
+
 ```bash
 $ docker-compose build
 $ docker-compose up -d
 ```
 
 Then head to http://172.18.0.3:5200/ to inspect the API's functionality.
+
+![cities_collection](./images/weather-service.png)
+
+
 
 ### Weather Agent API
 
@@ -66,12 +71,12 @@ curl -i "localhost:5000/weather_agent/get_cities'" -d "city"="London"
 To get city's last weather data:
 
 ```bash
-curl -i "localhost:5000/weather_agent/get_city_weather_data" -d "city"="London" -d "unit"="metric"
+curl -i "localhost:5000/weather_agent/get_city_weather_data" -d "city"="London"
 ```
 
-### MongoDB collections instances
+![cities_collection](./images/weather-agent.png)
 
-* Cities collection
+### MongoDB collections instances 
 
 ![cities_collection](./images/cities_collection.png)
 

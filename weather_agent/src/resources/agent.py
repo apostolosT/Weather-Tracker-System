@@ -17,6 +17,8 @@ db = client['weather_tracker']
 weather_data_collection = db['weather_data']
 cities_collection=db['cities']
 
+#should i retrieve tracked cities from cache as well?
+
 # cities=['Volos','Larisa','Athens','Thessaloniki']
 
 class CitiesList(Resource):
@@ -68,9 +70,9 @@ class RemoveCityEndpoint(Resource):
 
 class GetCityWeatherData(Resource):
     
-    url = 'http://127.0.0.1:5200/weather_service_api/current-weather'
+    url = 'http://0.0.0.0:5200/weather_service/current-weather'
     
-
+    
     
     def post(self):
         cities=cities_collection.find()
@@ -78,13 +80,13 @@ class GetCityWeatherData(Resource):
 
         parser = reqparse.RequestParser()
         parser.add_argument('city', location='form')
-        parser.add_argument(
-            'unit',
-            required=True,
-            choices=('metric', 'imperial'),
-            location='form',
-            help='Invalid Unit: {error_msg}',
-        )
+        # parser.add_argument(
+        #     'unit',
+        #     required=True,
+        #     choices=('metric', 'imperial'),
+        #     location='form',
+        #     help='Invalid Unit: {error_msg}',
+        # )
         args = parser.parse_args(strict=True)
         print(args['city'],cities)
 

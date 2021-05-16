@@ -4,8 +4,8 @@ import redis
 import json
 
 
-# redis_client=redis.Redis()
-redis_client=redis.Redis(host='redis', port=6379)
+redis_client=redis.Redis()
+# redis_client=redis.Redis(host='redis', port=6379)
 
 WEATHER_ENDPOINT='http://api.openweathermap.org/data/2.5'
 KEY='56db55e7cec8ea64e84ad8e39e744f66'
