@@ -30,7 +30,7 @@ For the present moment we need to have a running mongoDB  instance on your machi
 
 ### Weather Service API
 
-To launch the Weather Service API go to the weather_service sub-directory and run server.py. You can go to http://localhost:5200/weather_service_api  to inspect the APIs functionality.
+To launch the Weather Service API go to the weather_service sub-directory and run server.py. You can go to http://localhost:5200/weather_service to inspect the API's functionality.
 
 OR
 
@@ -39,7 +39,7 @@ $ docker-compose build
 $ docker-compose up -d
 ```
 
-
+Then head to http://172.18.0.3:5200/ to inspect the API's functionality.
 
 ### Weather Agent API
 
