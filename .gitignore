@@ -1,4 +1,4 @@
 .vscode
 key.txt
-__pycache
+__pycache__/
 caching_service
