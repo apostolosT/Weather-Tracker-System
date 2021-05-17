@@ -11,6 +11,7 @@
   - OpenAPI (Swagger) specification support
   - Caching OpenWeatherMap API responses with Redis backend
   - Docker Image
+  - Tests
 
 ## ToDOs
 
@@ -20,7 +21,6 @@
 
 * Weather Service API:
   * API internalization
-  * Tests
 * MongoDB as a Docker Container
 
 ## Run System
