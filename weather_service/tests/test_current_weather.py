@@ -8,37 +8,51 @@ class CurrentWeatherTest(BaseCase):
     @mock.patch('requests.post')
     def test_get_current_weather_city_success(self, mocked_get):
         # Arrange
-        mocked_get.return_value.json.return_value = {
-            'coord': {'lon': 9.177, 'lat': 48.7823},
-            'weather': [
-                {'id': 500, 'main': 'Rain', 'description': 'light rain', 'icon': '10d'}
+        mocked_get.return_value.json.return_value ={
+            "coord": {
+                "lon": -122.08,
+                "lat": 37.39
+            },
+            "weather": [
+                {
+                "id": 800,
+                "main": "Clear",
+                "description": "clear sky",
+                "icon": "01d"
+                }
             ],
-            'base': 'stations',
-            'main': {
-                'temp': 3.9,
-                'feels_like': -1.65,
-                'temp_min': 3.33,
-                'temp_max': 4.44,
-                'pressure': 1011,
-                'humidity': 45,
+            "base": "stations",
+            "main": {
+                "temp": 282.55,
+                "feels_like": 281.86,
+                "temp_min": 280.37,
+                "temp_max": 284.26,
+                "pressure": 1023,
+                "humidity": 100
             },
-            'visibility': 10000,
-            'wind': {'speed': 9.26, 'deg': 270},
-            'rain': {'1h': 0.82},
-            'clouds': {'all': 75},
-            'dt': 1617718308,
-            'sys': {
-                'type': 1,
-                'id': 1274,
-                'country': 'DE',
-                'sunrise': 1617684622,
-                'sunset': 1617732035,
+            "visibility": 16093,
+            "wind": {
+                "speed": 1.5,
+                "deg": 350
             },
-            'timezone': 7200,
-            'id': 2825297,
-            'name': 'Volos',
-            'cod': 200,
-        }
+            "clouds": {
+                "all": 1
+            },
+            "dt": 1560350645,
+            "sys": {
+                "type": 1,
+                "id": 5122,
+                "message": 0.0139,
+                "country": "US",
+                "sunrise": 1560343627,
+                "sunset": 1560396563
+            },
+            "timezone": -25200,
+            "id": 420006353,
+            "name": "Mountain View",
+            "cod": 200
+        }                         
+
 
         city = 'Volos'
         
@@ -50,7 +64,6 @@ class CurrentWeatherTest(BaseCase):
 
         # Assert
         self.assertEqual(response.json['city_name'], city)
-        self.assertIs(type(response.json['weather']['icon']), str)
         self.assertEqual(response.status_code, 200)
 
     def test_get_current_weather_no_city_failure(self):

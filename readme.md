@@ -54,18 +54,21 @@ To add a city to city watch list:
 
 ```bash
 curl -i "localhost:5000/weather_agent/add_city" -d "city"="London"
+curl -XPOST -H 'Content-Type: application/json' http://localhost:5000/WeatherAgent/insert_city -d '{"city": "Larisa"}'
 ```
 
 To remove a city from watch list:
 
 ```bash
 curl -i "localhost:5000/weather_agent/delete_city" -d "city"="London"
+curl -XDELETE -H 'Content-Type: application/json' http://localhost:5000/WeatherAgent/delete_city/Volos
 ```
 
 To get a list of tracked cities:
 
 ```bash
 curl -i "localhost:5000/weather_agent/get_cities'" -d "city"="London"
+curl -i "http://localhost:5000/WeatherAgent/ListCities"
 ```
 
 To get city's last weather data:

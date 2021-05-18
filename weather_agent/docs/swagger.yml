@@ -5,9 +5,9 @@ info:
   
 
 servers:
-  - url: http://localhost:5000/weather_agent
+  - url: http://localhost:5000/WeatherAgent
     description: Development server (using locally)
-  - url: http://0.0.0.0:5000/weather_agent
+  - url: http://0.0.0.0:5000/WeatherAgent
     description: Production server (inside Docker)
 
 

@@ -1,4 +1,3 @@
-import random
 from typing import List
 import sys
 from pathlib import Path
@@ -7,13 +6,13 @@ import pymongo
 
 d =str( Path(__file__).resolve().parents[1])
 sys.path.append(d)
-from database.db import client
+from db import client
 
 # Select the database
 db = client['weather_tracker']
 # Select the collection
 # weather_data_collection = db['weather_data']
-cities_collection=db['cities']
+cities_collection=db['Cities']
 
 
 request_url="http://127.0.0.1:5200/weather_service/current-weather"
@@ -46,13 +45,6 @@ def collect_daily_weather_data():
         
     print(f"Background job activated: Collected weather data for cities {cities}")
 
-# cities=['Volos','Larisa','Athens']
-# temps=['23.1','41.1','15.3']
-# def collect_daily_weather_data():
-#     print({
-#         'city':random.choice(cities),
-#         'temps':random.choice(temps)
-#     }
 
 
    
