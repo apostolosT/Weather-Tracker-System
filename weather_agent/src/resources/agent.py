@@ -6,10 +6,10 @@ import pymongo
 
 import sys
 from pathlib import Path
-d =str( Path(__file__).resolve().parents[3])
+d =str( Path(__file__).resolve().parents[2])
 sys.path.append(d)
 
-from commons.db import client
+from database.db import client
 
 # Select the database
 db = client['weather_tracker']
@@ -80,21 +80,16 @@ class GetCityWeatherData(Resource):
 
         parser = reqparse.RequestParser()
         parser.add_argument('city', location='form')
-        # parser.add_argument(
-        #     'unit',
-        #     required=True,
-        #     choices=('metric', 'imperial'),
-        #     location='form',
-        #     help='Invalid Unit: {error_msg}',
-        # )
+
         args = parser.parse_args(strict=True)
         print(args['city'],cities)
 
         if args['city'] in cities :
             x = requests.post(self.url, data = args)
-            weather_data_collection.insert_one(x.json())
+            x=x.json()
+            # weather_data_collection.insert_one(x)
             
-            return x.json()
+            return x
         
         else:
             return (f"Cannot fetch weather data for {args['city']} city. It is not listed in tracked cities. \n")

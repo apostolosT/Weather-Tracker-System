@@ -23,11 +23,11 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 scheduler = BackgroundScheduler()
 # trigger= CronTrigger(second=15)
-# job = scheduler.add_job(collect_daily_weather_data,'interval',seconds=60 )
+job = scheduler.add_job(collect_daily_weather_data,'interval',seconds=10 )
 # Runs daily at 5:30 (am) 
-#job=scheduler.add_job(job_function, 'cron', hour=5, minute=30)
+# job=scheduler.add_job(job_function, 'cron', hour=5, minute=30)
 
-# scheduler.start()
+scheduler.start()
 
 
 app.run(host='0.0.0.0',debug=True,port=5000)                #  Start a development server
