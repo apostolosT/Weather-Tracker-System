@@ -6,8 +6,9 @@
   - Weather Agent  CRUD endpoints with access to mongoDB
   - Weather Agent get city last weather data endpoint
   - Schedule daily background tasks for daily data collection
+  - CRUD endpoints unit tests
 - Weather Service API:
-  - Current Data Collection from OpenWeatherMap
+  - Current Weather Data Collection from OpenWeatherMap
   - OpenAPI (Swagger) specification support
   - Caching OpenWeatherMap API responses with Redis backend
   - Docker Image
@@ -16,12 +17,10 @@
 ## ToDOs
 
 * Weather Agent API:
-  * Tests
   * Docker image
 
-* Weather Service API:
-  * API internalization
-* MongoDB as a Docker Container
+* API internalization
+* MongoDB as a separate Docker Container
 
 ## Run System
 
@@ -53,28 +52,25 @@ To launch the Weather Agent API go to the weather_agent sub-dir and run server.p
 To add a city to city watch list:
 
 ```bash
-curl -i "localhost:5000/weather_agent/add_city" -d "city"="London"
-curl -XPOST -H 'Content-Type: application/json' http://localhost:5000/WeatherAgent/insert_city -d '{"city": "Larisa"}'
+curl -XPOST -H 'Content-Type: application/json' http://localhost:5000/WeatherAgent/insert_city -d '{"city": "Volos"}'
 ```
 
 To remove a city from watch list:
 
 ```bash
-curl -i "localhost:5000/weather_agent/delete_city" -d "city"="London"
 curl -XDELETE -H 'Content-Type: application/json' http://localhost:5000/WeatherAgent/delete_city/Volos
 ```
 
 To get a list of tracked cities:
 
 ```bash
-curl -i "localhost:5000/weather_agent/get_cities'" -d "city"="London"
 curl -i "http://localhost:5000/WeatherAgent/ListCities"
 ```
 
 To get city's last weather data:
 
 ```bash
-curl -i "localhost:5000/weather_agent/get_city_weather_data" -d "city"="London"
+curl -i "localhost:5000/WeatherAgent/get_city_weather_data" -d "city"="Volos"
 ```
 
 ![cities_collection](./images/weather-agent.png)
