@@ -14,8 +14,10 @@ db = client['weather_tracker']
 # weather_data_collection = db['weather_data']
 cities_collection=db['Cities']
 
-
-request_url="http://127.0.0.1:5200/weather_service/current-weather"
+#local development
+# request_url="http://127.0.0.1:5200/weather_service/current-weather"
+#production 
+request_url='http://weather_service:5200/weather_service/current-weather'
 
 def collect_daily_weather_data():
 

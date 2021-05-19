@@ -1,54 +1,47 @@
 # Weather Tracking System
 
+
+
 ## Implemented:
 
-- Weather Agent API:
+- ### Weather Agent API:
+  
   - Weather Agent  CRUD endpoints with access to mongoDB
   - Weather Agent get city last weather data endpoint
-  - Schedule daily background tasks for daily data collection
+  - Schedule daily background tasks for daily data collection at specific time of day
   - CRUD endpoints unit tests
-- Weather Service API:
+- ### Weather Service API:
+  
   - Current Weather Data Collection from OpenWeatherMap
   - OpenAPI (Swagger) specification support
-  - Caching OpenWeatherMap API responses with Redis backend
+  - Caching OpenWeatherMap API responses with Redis backend. Redis key is the city name and the values are the external api's response. Keys expire after we specify elapsed time after storing it in cache.
   - Docker Image
   - Tests
+  
+- Docker Compose YAML for running the system
 
 ## ToDOs
 
-* Weather Agent API:
-  * Docker image
-  * Test get_current_weather_data endpoint response, before storing into database
+
+
+- Unit test GetCurrentWeatherData response before storing into database
 
 * API internalization
-* MongoDB as a separate Docker Container
 
 ## Run System
 
-For the present moment we need to have a running mongoDB  instance on your machine and a virtual python environment to support the system's functionality.
+### Using Docker
 
-### Weather Service API
+Download repo  and from weather tracker directory run:
 
-To launch the Weather Service API go to the weather_service sub-directory and run server.py. You can go to http://localhost:5200/weather_service to inspect the API's functionality.
-
-OR
-
-Being in the weather_service directory , build a docker image by executing the following commands: 
-
-```bash
+```bas
 $ docker-compose build
 $ docker-compose up -d
 ```
 
-Then head to http://172.18.0.3:5200/ to inspect the API's functionality.
-
-![cities_collection](./images/weather-service.png)
-
-
-
 ### Weather Agent API
 
-To launch the Weather Agent API go to the weather_agent sub-dir and run server.py. Currently OpenAPI is not supported, instead you can check CRUD functionality by issuing the following commands:
+To access the Weather Service API  endpoints, execute the following commands:
 
 To add a city to city watch list:
 
@@ -76,8 +69,17 @@ curl -i "localhost:5000/WeatherAgent/get_city_weather_data" -d "city"="Volos"
 
 ![cities_collection](./images/weather-agent.png)
 
-### MongoDB collections instances 
+### Weather Service API
 
-![cities_collection](./images/cities_collection.pn)
+To access the Weather Wervice API head to  <docker-hosted-service-url/weather_service> and inspect the API documentation via swagger ui.
 
-![weather_collection](./images/weather_collection.pn)
+![cities_collection](./images/weather-service.png)
+
+
+
+### Weather Agent API
+
+### MongoDB collections instances
+
+![cities_collection](./images/cities_collection.png)
+
