@@ -18,6 +18,7 @@
 
 * Weather Agent API:
   * Docker image
+  * Test get_current_weather_data endpoint response, before storing into database
 
 * API internalization
 * MongoDB as a separate Docker Container
@@ -77,6 +78,6 @@ curl -i "localhost:5000/WeatherAgent/get_city_weather_data" -d "city"="Volos"
 
 ### MongoDB collections instances 
 
-![cities_collection](./images/cities_collection.png)
+![cities_collection](./images/cities_collection.pn)
 
-![weather_collection](./images/weather_collection.png)
+![weather_collection](./images/weather_collection.pn)
