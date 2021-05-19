@@ -4,5 +4,9 @@ sys.path.append(os.getcwd())
 
 DATABASE = MongoClient()['weather_tracker'] # DB_NAME
 DEBUG = False
-client = MongoClient('localhost', 27017)
+mongo_host=True
+if(mongo_host):
+    client = MongoClient("mongodb://my_db:27017")
+else:
+    client = MongoClient('localhost', 27017)
 

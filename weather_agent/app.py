@@ -20,7 +20,7 @@ api.add_resource(Cities,"/WeatherAgent/ListCities")
 api.add_resource(GetCityWeatherData, '/WeatherAgent/get_city_weather_data')
 
 #create backround job for collecting weather data
-# from apscheduler.schedulers.background import BackgroundScheduler
+# from apwebscheduler.schedulers.background import BackgroundScheduler
 # from apscheduler.triggers.cron import CronTrigger
 # scheduler = BackgroundScheduler()
 # # trigger= CronTrigger(second=15)

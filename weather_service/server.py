@@ -18,4 +18,4 @@ app.register_blueprint(swagger.connect_swagger())
 
 api.add_resource(CurrentWeather, '/weather_service/current-weather')
 
-app.run(host='0.0.0.0',debug=True,port=5200,threaded=True)
+app.run(host='0.0.0.0',debug=True,port=5200)

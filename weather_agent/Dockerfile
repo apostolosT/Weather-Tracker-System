@@ -1,6 +1,6 @@
 FROM python:3.7-alpine
 
-WORKDIR /weather_service
+WORKDIR /weather_agent
 
 COPY requirements.txt ./
 
@@ -8,6 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# EXPOSE 5200
+# EXPOSE 5000
 
-CMD ["python","-u", "server.py"]
+CMD ["python","-u", "app.py"]

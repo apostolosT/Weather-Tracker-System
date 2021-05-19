@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+
+    weather_agent:
+        build: "./weather_agent"
+        ports:
+            - "5000:5000"
+        links: 
+            - my_db
+        networks:
+            - todo_backend
+
+    weather_service:
+        build: "./weather_service"
+        ports:
+            - "5200:5000"
+        networks:
+            - todo_backend
+       
+      
+                  
+    redis:
+        image: "redis:alpine"
+        networks:
+            - todo_backend
+
+    my_db:
+        build: "./db"
+        command: mongod --quiet 
+        networks:
+            - todo_backend
+
+networks:
+    todo_backend:
+        driver: bridge

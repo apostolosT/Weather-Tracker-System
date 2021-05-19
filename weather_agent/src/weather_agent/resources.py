@@ -54,7 +54,7 @@ class GetCityWeatherData(Resource):
         self.db = Mongo(app.config["DB_URI"])
         self.coll = "Cities"
         self.db_name = app.config["DB_NAME"]
-        self.url = 'http://0.0.0.0:5200/weather_service/current-weather'
+        self.url = 'http://weather_service:5200/weather_service/current-weather'
     
     
     

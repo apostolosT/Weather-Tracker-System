@@ -1,9 +1,9 @@
 Flask==1.1.2
+Flask-RESTful==0.3.8
+requests==2.25.1
+flask_swagger_ui
+pyyaml==5.4.1
+flask-cors
 flask-mongoengine==1.0.0
 Flask-PyMongo==2.3.0
-Flask-RESTful==0.3.8
-flask-restplus==0.13.0
-flask-swagger-ui==3.36.0
-Flask-WTF==0.14.3
-redis
 apscheduler
