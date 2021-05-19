@@ -4,6 +4,7 @@ sys.path.append(os.getcwd())
 
 DATABASE = MongoClient()['weather_tracker'] # DB_NAME
 DEBUG = False
+#docker mongo host
 mongo_host=True
 if(mongo_host):
     client = MongoClient("mongodb://my_db:27017")

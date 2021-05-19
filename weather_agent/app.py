@@ -32,4 +32,4 @@ job=scheduler.add_job(collect_daily_weather_data, 'cron', hour=5, minute=30)
 
 scheduler.start()
 
-app.run(host='0.0.0.0',debug=True,port=5000)                #  Start a development server
+app.run(host='0.0.0.0',port=5000)                #  Start a development server
